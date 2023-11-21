@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="wrapper">
+        <h1>Login</h1>
+    <form [formGroup]="loginForm">
+        <div class="input-fields">
+            <input type="text" formControlName="email" placeholder="enter email"/>
+            <span class="errors" *ngIf="loginFormControls.email.errors?.['required'] && loginFormControls.email.touched">email is required</span>
+            <span class="errors" *ngIf="loginFormControls.email.errors?.['email'] && loginFormControls.email.touched">Please enter valid email address</span>
+        </div>
+        <div class="input-fields">
+            <input type="password" formControlName="password" placeholder="enter password"/>
+            <span class="errors" *ngIf="loginFormControls.password.errors?.['required'] && loginFormControls.password.touched">password is required</span>
+            <span class="errors" *ngIf="loginFormControls.password.errors?.['pattern'] && loginFormControls.password.touched">Password should contain at least uppercase,lowercase,number and special character and it should be 10 character long</span>
+        </div>
+       
+    </form>
+    <button type="button"  [ngClass]="!loginForm.valid?'disabled-btn':'btn-field'" (click)="onLogin()" [disabled]="!loginForm.valid">login</button>
+   <div> create account <button type="button" class="signup-btn"  (click)="onSignup()">sign-up</button></div>
+
+    </div>
+    
+  
+  </div>
