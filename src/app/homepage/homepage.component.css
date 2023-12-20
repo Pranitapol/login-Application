@@ -1,0 +1,28 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin:4px 0;
+}
+.menus{
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+}
+
+.links{
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-family: serif;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+.links:hover{
+    background: #000;
+    padding: 4px 7px;
+    color:#fff;
+
+}

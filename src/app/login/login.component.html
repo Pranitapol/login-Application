@@ -1,5 +1,6 @@
 <div class="container">
-   
+    <app-pop-up [error]="loginErrorMessage" *ngIf="loginErrorMessage" (close)="loginErrorMessage = null;"></app-pop-up>
+    <div class="toaster" *ngIf="successMessage">  {{successMessage}}</div>
     <div class="wrapper">
         <div >
             <img class="wrapper-img" src="../../assets/imge1.png">
@@ -7,7 +8,7 @@
 
         <div class="wrapper-content">
             <h1>Login</h1>
-            <form [formGroup]="loginForm">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="input-fields">
                     <input type="text" formControlName="email" placeholder="enter email"/>
                     <span class="errors" *ngIf="loginFormControls.email.errors?.['required'] && loginFormControls.email.touched">email is required</span>
@@ -19,10 +20,11 @@
                     <span class="errors" *ngIf="loginFormControls.password.errors?.['pattern'] && loginFormControls.password.touched">Password should contain at least uppercase,lowercase,number and special character and it should be 10 character long</span>
                 </div>
             
-            </form>
+          
 
-            <button type="button"  [ngClass]="!loginForm.valid?'disabled-btn':'btn-field'" (click)="onLogin()" [disabled]="!loginForm.valid">login</button>
+            <button type="submit"  [ngClass]="!loginForm.valid?'disabled-btn':'btn-field'" [disabled]="!loginForm.valid">login</button>
             <div> create account <button type="button" class="signup-btn"  (click)="onSignup()">sign-up</button></div>
+        </form>
         </div>
         
     </div>

@@ -15,9 +15,10 @@ export class SignupService {
   }
 
   postData(signupdata:any){
-    this.httpclient.post('http://localhost:8000/post',signupdata).subscribe(res=>{
-      console.log(res);
-      
-    })
+    return this.httpclient.post('http://localhost:8000/post',signupdata)
+  }
+
+  postLoginData(loginData:any){
+    return this.httpclient.post('http://localhost:8000/login',loginData)
   }
 }
