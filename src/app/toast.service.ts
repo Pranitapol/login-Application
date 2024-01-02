@@ -7,13 +7,13 @@ import { Observable, Subject } from 'rxjs';
 export class ToastService {
 
   toasterMessage:any = new Subject();
-  successMessage:Observable<any>
+  //successMessage:Observable<any>
   constructor() { 
-    this.successMessage=this.toasterMessage.asObservable()
+    //this.successMessage=this.toasterMessage.asObservable()
   }
 
   showToaster(message:any){
-    console.log(message);
+    //console.log(message);
     this.toasterMessage.next(message)
   }
   dismissTOast(){

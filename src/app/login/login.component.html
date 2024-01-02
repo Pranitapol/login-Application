@@ -1,6 +1,9 @@
 <div class="container">
-    <app-pop-up [error]="loginErrorMessage" *ngIf="loginErrorMessage" (close)="loginErrorMessage = null;"></app-pop-up>
+    <app-pop-up [error]="loginErrorMessage || unknownErr" *ngIf="loginErrorMessage || unknownErr" (close)="loginErrorMessage=null || unknownErr= null;"></app-pop-up>
     <div class="toaster" *ngIf="successMessage">  {{successMessage}}</div>
+    <div *ngIf="loading">
+        <span class="loading-spinner"></span>
+    </div>
     <div class="wrapper">
         <div >
             <img class="wrapper-img" src="../../assets/imge1.png">
@@ -13,14 +16,14 @@
                     <input type="text" formControlName="email" placeholder="enter email"/>
                     <span class="errors" *ngIf="loginFormControls.email.errors?.['required'] && loginFormControls.email.touched">email is required</span>
                     <span class="errors" *ngIf="loginFormControls.email.errors?.['email'] && loginFormControls.email.touched">Please enter valid email address</span>
+                    <span class="errors" *ngIf="loginFormControls.email.errors">{{emailErr}}</span>
                 </div>
                 <div class="input-fields">
                     <input type="password" formControlName="password" placeholder="enter password"/>
                     <span class="errors" *ngIf="loginFormControls.password.errors?.['required'] && loginFormControls.password.touched">password is required</span>
                     <span class="errors" *ngIf="loginFormControls.password.errors?.['pattern'] && loginFormControls.password.touched">Password should contain at least uppercase,lowercase,number and special character and it should be 10 character long</span>
-                </div>
-            
-          
+                    <span class="errors" *ngIf="loginFormControls.password.errors" >{{passwordError}}</span>
+                </div>    
 
             <button type="submit"  [ngClass]="!loginForm.valid?'disabled-btn':'btn-field'" [disabled]="!loginForm.valid">login</button>
             <div> create account <button type="button" class="signup-btn"  (click)="onSignup()">sign-up</button></div>

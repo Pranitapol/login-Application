@@ -11,6 +11,10 @@ import { ToastService } from '../toast.service';
 export class LoginComponent implements OnInit {
   loginErrorMessage:any;
   successMessage:any;
+  passwordError:any;
+  emailErr:any='';
+  unknownErr:any;
+  loading:boolean=false;
 
   loginForm=new FormGroup({
   email:new FormControl('',[Validators.required,Validators.email]),
@@ -21,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.toasterService.toasterMessage.subscribe((res:any)=>{
       this.successMessage=res;
       setTimeout(()=>{
-        this.toasterService.dismissTOast()
+        this.toasterService.dismissTOast();
       },4000)
     })
   }
@@ -34,20 +38,42 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
+ 
    this.Service.postLoginData(this.loginForm.value).subscribe(result=>{
-    console.log(Object.values(result)[0]);
+    this.loading=true
     this.toasterService.showToaster(Object.values(result)[0])
     setInterval(()=>{
       this.router.navigate(['home'])
+      this.loading=false;
     },2000)
    },
    error=>{
-    // console.log(error.error.message);
-    this.loginErrorMessage=error.error.message
+    this.loading=true;
+   setTimeout(() => {
+    this.loading=false;
+    this.emailErr= error.error.emailErr
+    this.passwordError = error.error.passwordErr
+    this.loginErrorMessage= error.error.message
+    this.unknownErr = error.statusText ? 'Please connect to server':''
+
+    this.emailErr?this.loginForm.controls.email.setErrors({emailErr:this.emailErr}):'';
+    this.passwordError? this.loginForm.controls.password.setErrors({passwordErr:this.passwordError}):'';
+  
+   }, 2000);
+    console.log(error,error.error.emailErr);
+  //   this.emailErr= error.error.emailErr
+  //   this.passwordError = error.error.passwordErr
+  //   this.loginErrorMessage= error.error.message
+  //   this.unknownErr = error.statusText ? 'Please connect to server':''
+
+  //   this.emailErr?this.loginForm.controls.email.setErrors({emailErr:this.emailErr}):'';
+  //   this.passwordError? this.loginForm.controls.password.setErrors({passwordErr:this.passwordError}):'';
    })
     
   }
+
   get loginFormControls(){
     return this.loginForm.controls
   }
+ 
 }

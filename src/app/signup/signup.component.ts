@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
 import { passwordMismatch } from '../validators/passwordMismatch';
 import { SignupService } from '../signup.service';
-import {MatDialogModule,MatDialog} from '@angular/material/dialog'
-import { PopUpComponent } from '../pop-up/pop-up.component';
 import { Router } from '@angular/router';
 import { ToastService } from '../toast.service';
 
