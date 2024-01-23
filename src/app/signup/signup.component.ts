@@ -24,7 +24,6 @@ successMessage:any;
   },[passwordMismatch('password','confirmPassword')])
   constructor(private signupservice:SignupService,private toastService:ToastService,private router:Router) {
     this.toastService.toasterMessage.subscribe((res:any)=>{
-      console.log(res);
       this.successMessage=res;
       setTimeout(() => {
         this.toastService.dismissTOast()

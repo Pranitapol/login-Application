@@ -13,4 +13,14 @@ describe('ToastService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should call showToaster',()=>{
+    service.showToaster('hello');
+    expect(service.showToaster).toHaveBeenCalledWith('hello')
+  })
+
+  it('should call dismissToast',()=>{
+    service.dismissTOast();
+    expect(service.dismissTOast).toHaveBeenCalled()
+  })
 });

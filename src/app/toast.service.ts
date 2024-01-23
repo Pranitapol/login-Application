@@ -13,7 +13,7 @@ export class ToastService {
   }
 
   showToaster(message:any){
-    //console.log(message);
+    console.log(message);
     this.toasterMessage.next(message)
   }
   dismissTOast(){
