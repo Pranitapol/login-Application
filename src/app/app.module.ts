@@ -11,7 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HomepageComponent } from './homepage/homepage.component';
-import { ToasterComponent } from './toaster/toaster.component'
+import { ToasterComponent } from './toaster/toaster.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { ToasterComponent } from './toaster/toaster.component'
     PopUpComponent,
     HomepageComponent,
     ToasterComponent,
+    ForgetPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

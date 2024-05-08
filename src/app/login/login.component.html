@@ -5,7 +5,7 @@
         <span class="loading-spinner"></span>
     </div>
     <div class="wrapper">
-        <div >
+        <div>
             <img class="wrapper-img" src="../../assets/imge1.png">
         </div>
 
@@ -26,10 +26,14 @@
                 </div>    
 
             <button type="submit"  [ngClass]="!loginForm.valid?'disabled-btn':'btn-field'" [disabled]="!loginForm.valid">login</button>
-            <div> create account <button type="button" class="signup-btn"  (click)="onSignup()">sign-up</button></div>
+            <div style="display: flex;justify-content: space-between; margin:20px 0 0 0"> 
+                <a href="forgetPassword">forget password?</a>
+                 <a href="signup">create account</a>
+            </div>
         </form>
         </div>
         
     </div>
 
   </div>
+

@@ -23,4 +23,8 @@ export class SignupService {
     
     return this.httpclient.post('http://localhost:8000/login',loginData)
   }
+
+  forgetPassword(email:any){
+    return this.httpclient.post('http://localhost:8000/send-email',email)
+  }
 }

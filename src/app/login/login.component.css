@@ -65,12 +65,7 @@ input{
     cursor: no-drop;
 }
 .signup-btn{
-    width: 30%;
-    height: 30px;
-    margin:10px;
-    border:none;
-    background: #026f9b;
-    color:#fff;
+   
     cursor: pointer;
 }
 

@@ -9,11 +9,11 @@ import { ToastService } from '../toast.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginErrorMessage:any;
-  successMessage:any;
-  passwordError:any;
-  emailErr:any='';
-  unknownErr:any;
+  loginErrorMessage:String | undefined | null;
+  successMessage:String | undefined | null;
+  passwordError:String | null |undefined;
+  emailErr:String | null | undefined;
+  unknownErr:String |null | undefined;
   loading:boolean=false;
 
   loginForm=new FormGroup({
@@ -61,13 +61,6 @@ export class LoginComponent implements OnInit {
   
    }, 2000);
     console.log(error,error.error.emailErr);
-  //   this.emailErr= error.error.emailErr
-  //   this.passwordError = error.error.passwordErr
-  //   this.loginErrorMessage= error.error.message
-  //   this.unknownErr = error.statusText ? 'Please connect to server':''
-
-  //   this.emailErr?this.loginForm.controls.email.setErrors({emailErr:this.emailErr}):'';
-  //   this.passwordError? this.loginForm.controls.password.setErrors({passwordErr:this.passwordError}):'';
    })
     
   }
@@ -75,5 +68,6 @@ export class LoginComponent implements OnInit {
   get loginFormControls(){
     return this.loginForm.controls
   }
+
  
 }

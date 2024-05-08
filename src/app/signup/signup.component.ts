@@ -11,8 +11,8 @@ import { ToastService } from '../toast.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-error:any;
-successMessage:any;
+error:String | null | undefined;
+successMessage:String | null | undefined;
 
   signupForm=new FormGroup({
     username:new FormControl('',Validators.required),

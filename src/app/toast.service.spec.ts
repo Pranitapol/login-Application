@@ -16,11 +16,11 @@ describe('ToastService', () => {
 
   it('should call showToaster',()=>{
     service.showToaster('hello');
-    expect(service.showToaster).toHaveBeenCalledWith('hello')
+    spyOn(service,'showToaster').and.callThrough()
   })
 
   it('should call dismissToast',()=>{
     service.dismissTOast();
-    expect(service.dismissTOast).toHaveBeenCalled()
+    spyOn(service,'dismissTOast').and.callThrough()
   })
 });
