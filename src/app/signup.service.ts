@@ -27,4 +27,8 @@ export class SignupService {
   forgetPassword(email:any){
     return this.httpclient.post('http://localhost:8000/send-email',email)
   }
+
+  resetPassword(resetData:any){
+    return this.httpclient.post('http://localhost:8000/reset-password',resetData)
+  }
 }

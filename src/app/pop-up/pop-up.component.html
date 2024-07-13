@@ -1,6 +1,7 @@
-
 <div class="backdrop"></div>
 <div class="alert-box">
-<div [ngClass]="error?'error':'successMessage'" *ngIf="message">{{message}}</div>
-<button type="button" class="btn" (click)="onClose()">close</button>
+  <div [ngClass]="error ? 'error' : 'successMessage'" *ngIf="message">
+    {{ message }}
+  </div>
+  <button type="button" class="btn" (click)="onClose()">close</button>
 </div>

@@ -1,26 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PopUpComponent } from './pop-up/pop-up.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ToasterComponent } from './toaster/toaster.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component'
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
     LoginComponent,
-    PopUpComponent,
     HomepageComponent,
     ToasterComponent,
     ForgetPasswordComponent,
@@ -33,10 +29,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDialogModule
-
+    MatDialogModule,
+    SharedModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

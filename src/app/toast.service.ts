@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ToastService {
-
-  toasterMessage:any = new Subject();
+  toasterMessage: any = new Subject();
+  userLogged = new BehaviorSubject<boolean>(false);
   //successMessage:Observable<any>
-  constructor() { 
+  constructor() {
     //this.successMessage=this.toasterMessage.asObservable()
   }
 
-  showToaster(message:any){
+  showToaster(message: any) {
     console.log(message);
-    this.toasterMessage.next(message)
+    this.toasterMessage.next(message);
   }
-  dismissTOast(){
-    this.toasterMessage.next(null)
+  dismissTOast() {
+    this.toasterMessage.next(null);
   }
 }
